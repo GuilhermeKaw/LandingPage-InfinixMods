@@ -120,9 +120,9 @@ function adicionarAoCarrinho(nome, preco, tipo) {
         }
         itemExistente.quantidade += 1;
     } else {
-        if (carrinho.length >= 4) {
+        if (carrinho.length >= 5) {
             abrirCarrinho();
-            mostrarAvisoCarrinho(`Atenção: Você pode adicionar no máximo 4 produtos diferentes ao carrinho!`, 'erro');
+            mostrarAvisoCarrinho(`Atenção: Você pode adicionar no máximo 5 produtos diferentes ao carrinho!`, 'erro');
             return;
         }
         carrinho.push({ nome: nome, preco: parseFloat(preco), tipo: tipo, metadata_tipo: tipo, Club_count: 1, quantidade: 1 });
@@ -282,15 +282,8 @@ function enviarPedidoWhatsApp() {
     mostrarAvisoCarrinho(`Sucesso: Pedido ${idPedido} gerado! Redirecionando para o WhatsApp...`, 'sucesso');
 }
 
+// Suporte sem trava de tempo (cooldown removido)
 function chamarSuporteAvulso() {
-    const statusTempo = verificarTravaDeTempo('infinix_timestamp_suporte');
-    if (statusTempo.bloqueado) {
-        mostrarAvisoCarrinho(`Ação bloqueada! Aguarde ${statusTempo.minutos}m e ${statusTempo.segundos}s para chamar o suporte novamente.`, 'erro');
-        return;
-    }
-
-    localStorage.setItem('infinix_timestamp_suporte', Date.now().toString());
-    
     let msgSuporte = `_SOLICITAÇÃO DE SUPORTE — INFINIX MOD_\n\n`;
     msgSuporte += `_Olá! Acessei o site oficial e gostaria de tirar algumas dúvidas sobre os pacotes e procedimentos de Upagem antes de realizar meu pedido._`;
     

@@ -149,8 +149,9 @@
             <p class="subtitle-reveal">Monte o seu pacote ou escolha recursos avulsos de acordo com sua necessidade</p>
         </div>
         
-        <h3 class="category-title">Unlocks & Modificações</h3>
-        <div class="cards-wrapper grid-4-cols" style="margin-bottom: 60px;">
+        <!-- Categoria 1: Pacotes & Unlocks (2 colunas) -->
+        <h3 class="category-title">Pacotes & Unlocks</h3>
+        <div class="cards-wrapper grid-2-cols" style="margin-bottom: 60px;">
             <div class="minimal-vip-card reveal-bottom">
                 <div class="card-radial-glow"></div>
                 <div class="card-top-content">
@@ -186,7 +187,11 @@
                     <button class="btn-vip" onclick="adicionarAoCarrinho('Unlock + Nível', 20.00, 'Pedido Personalizado')">ADQUIRIR AGORA</button>
                 </div>
             </div>
+        </div>
 
+        <!-- Categoria 2: Modificações Avulsas (3 colunas) -->
+        <h3 class="category-title">Modificações Avulsas</h3>
+        <div class="cards-wrapper grid-3-cols" style="margin-bottom: 60px;">
             <div class="minimal-vip-card reveal-bottom">
                 <div class="card-radial-glow"></div>
                 <div class="card-top-content">
@@ -222,8 +227,27 @@
                     <button class="btn-vip" onclick="adicionarAoCarrinho('Trajes Mod Avulso', 2.00, 'Pedido Personalizado')">ADQUIRIR AGORA</button>
                 </div>
             </div>
+
+            <div class="minimal-vip-card reveal-bottom">
+                <div class="card-radial-glow"></div>
+                <div class="card-top-content">
+                    <h3 class="plan-title-top">Propriedades Mod</h3>
+                    <ul class="features-list">
+                        <li><i class="fas fa-building"></i> <span>Propriedades e Imóveis</span></li>
+                        <li><i class="fas fa-key"></i> <span>Adicionadas direto na conta</span></li>
+                    </ul>
+                </div>
+                <div class="card-bottom-actions">
+                    <div class="price-wrapper">
+                        <span class="price-title">VALOR UNITÁRIO</span>
+                        <span class="price-tag">R$ 2,00 <small style="font-size: 12px; color: var(--text-alt);">/cada</small></span>
+                    </div>
+                    <button class="btn-vip" onclick="adicionarAoCarrinho('Propriedades Mod Avulso', 2.00, 'Pedido Personalizado')">ADQUIRIR AGORA</button>
+                </div>
+            </div>
         </div>
 
+        <!-- Categoria 3: Injeção de Dinheiro -->
         <h3 class="category-title">Injeção de Dinheiro</h3>
         <div class="cards-wrapper grid-3-cols">
             <div class="minimal-vip-card reveal-bottom">
@@ -282,11 +306,16 @@
         </div>
     </section>
     
-    <!-- Carrinho floating e modal -->
+    <!-- Botões Flutuantes: Suporte e Carrinho -->
+    <button id="floating-support-btn" onclick="chamarSuporteAvulso()" title="Falar com o suporte">
+        <i class="fas fa-headset"></i>
+    </button>
+
     <button id="floating-cart-btn" onclick="abrirCarrinho()" title="Ver carrinho">
         <i class="fas fa-shopping-basket"></i>
     </button>
 
+    <!-- Modal Carrinho -->
     <div id="cart-modal" class="modal-overlay">
         <div class="modal-card">
             <div id="cart-warning-banner" class="cart-alert-banner">
@@ -307,7 +336,6 @@
             <div class="modal-footer-btns">
                 <button class="btn-continue-shopping" onclick="fecharCarrinho()">+ ADICIONAR MAIS ITENS</button>
                 <button class="btn-finish-whatsapp" onclick="enviarPedidoWhatsApp()"><i class="fab fa-whatsapp"></i> FINALIZAR PEDIDO (VENDAS)</button>
-                <button class="btn-continue-shopping" onclick="chamarSuporteAvulso()" style="border-color: rgba(0, 188, 112, 0.3); color: var(--green-neon); margin-top: 5px;"><i class="fas fa-headset"></i> FALAR COM O SUPORTE (DÚVIDAS)</button>
             </div>
         </div>
     </div>
